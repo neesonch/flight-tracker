@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Dashboard from "./components/Dashboard";
-import useDashboardState from "./store/store";
+import useDashboardStore from "./store/store";
 
 const App = () => {
-  const addAircraft = useDashboardState((state) => state.addAircraft);
+  const addAircraft = useDashboardStore((state) => state.addAircraft);
 
   useEffect(() => {
     fetch("/aircraft")

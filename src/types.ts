@@ -15,4 +15,5 @@ export interface Flight {
 export interface Portfolio {
   name: string;
   aircraftByRegistration: string[];
+  id: string;
 }
