@@ -1,23 +1,18 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import Dashboard from "./components/Dashboard";
+import useDashboardState from "./store/store";
 
 const App = () => {
+  const addAircraft = useDashboardState((state) => state.addAircraft);
+
   useEffect(() => {
     fetch("/aircraft")
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => addAircraft(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Dashboard />
-      </header>
-    </div>
-  );
+  return <Dashboard />;
 };
 
 export default App;

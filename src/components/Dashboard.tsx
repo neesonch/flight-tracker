@@ -1,12 +1,18 @@
 import React from "react";
-import PortfolioCard from "./Portfolios/PortfolioCard/PortfolioCard";
+import Grid from "@mui/material/Grid";
+import PortfolioList from "./Portfolios/PortfolioList/PortfolioList";
+import FlightsChart from "./FlightsChart/FlightsChart";
 
 const Dashboard = () => {
   return (
-    <>
-      <div>Im a dashboard lol</div>
-      <PortfolioCard />
-    </>
+    <Grid container spacing={1}>
+      <Grid item xs={4}>
+        <PortfolioList />
+      </Grid>
+      <Grid item xs={8}>
+        <FlightsChart />
+      </Grid>
+    </Grid>
   );
 };
 

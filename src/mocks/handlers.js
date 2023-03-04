@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { mockAircraftData } from "./mockAircraftData";
+import mockAircraftData from "./mockAircraftData";
 
 const handlers = [
   rest.get("/aircraft", (req, res, ctx) => {
