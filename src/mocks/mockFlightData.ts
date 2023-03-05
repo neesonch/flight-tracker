@@ -6,7 +6,7 @@ const mockFlightData: Flight[] = [
     registration: "ZS-GAO",
     departure_airport: "DUB",
     departure_timestamp: 1595931449,
-    arrival_airport: "MXP",
+    arrival_airport: "LHR",
     arrival_timestamp: 1595939700,
   },
 ];
