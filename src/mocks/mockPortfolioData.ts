@@ -1,4 +1,4 @@
-import type { Aircraft } from "../types";
-import mockAircraftData from "./mockAircraftData";
+import type { Airplane } from "../types";
+import mockAirplanesData from "./mockAirplanesData";
 
-export const mockPortfolioData: Aircraft[][] = [mockAircraftData];
+export const mockPortfolioData: Airplane[][] = [mockAirplanesData];

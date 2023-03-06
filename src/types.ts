@@ -1,8 +1,9 @@
 import mockAirportCodes from "./mocks/mockAirportData";
 
-export interface Aircraft {
+export interface Airplane {
   registration: string;
   model: "A320-200" | "B737-800";
+  flights?: Flightset;
 }
 
 export type AirportCode = (typeof mockAirportCodes)[number];
@@ -16,8 +17,12 @@ export interface Flight {
   arrival_timestamp: number;
 }
 
+export interface Flightset {
+  [key: string]: Flight[];
+}
+
 export interface Portfolio {
   name: string;
-  aircraftByRegistration: string[];
+  airplaneByRegistration: string[];
   id: string;
 }

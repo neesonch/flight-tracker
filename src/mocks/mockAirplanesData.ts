@@ -1,6 +1,6 @@
-import { Aircraft } from "../types";
+import { Airplane } from "../types";
 
-const mockAircraftData: Aircraft[] = [
+const mockAirplanesData: Airplane[] = [
   { registration: "ZS-GAO", model: "A320-200" },
   { registration: "D-AIUO", model: "A320-200" },
   { registration: "B-6636", model: "A320-200" },
@@ -9,4 +9,4 @@ const mockAircraftData: Aircraft[] = [
   { registration: "XA-AMZ", model: "B737-800" },
 ];
 
-export default mockAircraftData;
+export default mockAirplanesData;

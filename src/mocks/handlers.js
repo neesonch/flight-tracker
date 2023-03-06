@@ -1,9 +1,9 @@
 import { rest } from "msw";
-import mockAircraftData from "./mockAircraftData";
+import mockAirplanesData from "./mockAirplanesData";
 
 const handlers = [
-  rest.get("/aircraft", (req, res, ctx) => {
-    return res(ctx.delay(2000), ctx.status(200), ctx.json(mockAircraftData));
+  rest.get("/airplanes", (req, res, ctx) => {
+    return res(ctx.delay(2000), ctx.status(200), ctx.json(mockAirplanesData));
   }),
 ];
 

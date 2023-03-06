@@ -28,7 +28,7 @@ const PortfolioDetails = () => {
             <FlightsChart />
           </Grid>
           <Grid item xs={2}>
-            <div>Aircraft go here</div>
+            <div>Airplanes go here</div>
           </Grid>
         </Grid>
       </Grid>
