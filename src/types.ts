@@ -3,7 +3,11 @@ import mockAirportCodes from "./mocks/mockAirportData";
 export interface Airplane {
   registration: string;
   model: "A320-200" | "B737-800";
-  flights?: Flightset;
+  flights?: Flight[];
+}
+
+export interface AirplaneGroup {
+  [key: string]: Airplane;
 }
 
 export type AirportCode = (typeof mockAirportCodes)[number];
@@ -25,4 +29,15 @@ export interface Portfolio {
   name: string;
   airplaneByRegistration: string[];
   id: string;
+}
+
+export interface Datapoint {
+  x: string;
+  y: number;
+}
+
+export interface ChartDataSet {
+  id: string;
+  color: string;
+  data: Datapoint[];
 }

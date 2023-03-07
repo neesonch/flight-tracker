@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
+import useDashboardStore from "../../store/store";
+import generateChartData from "../../helpers/generate-chart-data";
+import { ChartDataSet } from "../../types";
 
-const mockData = [
+const mockData: ChartDataSet[] = [
   {
     id: "Flights",
     color: "hsl(329, 70%, 50%)",
@@ -77,10 +80,33 @@ const MyResponsiveLine = ({ data }: LineChartProps) => (
   />
 );
 
-const FlightsChart = () => (
-  <div style={{ height: "900px" }}>
-    <MyResponsiveLine data={mockData} />
-  </div>
-);
+const FlightsChart = () => {
+  const activePortfolioId = useDashboardStore(
+    (state) => state.activePortfolioId
+  );
+  const portfolios = useDashboardStore((state) => state.portfolios);
+  const airplanes = useDashboardStore((state) => state.airplanes);
+
+  const activePortfolio = portfolios.find(
+    (portfolio) => portfolio.id === activePortfolioId
+  );
+
+  const [chartData, setChartData] = useState<ChartDataSet[]>();
+
+  useEffect(() => {
+    const airplanesInPortfolio =
+      activePortfolio?.airplaneByRegistration.map(
+        (registration) => airplanes[registration]
+      ) || [];
+    // generateChartData(airplanesInPortfolio);
+    setChartData(generateChartData(airplanesInPortfolio));
+  }, [activePortfolio, portfolios, airplanes]);
+
+  return (
+    <div style={{ height: "900px" }}>
+      <MyResponsiveLine data={chartData} />
+    </div>
+  );
+};
 
 export default FlightsChart;

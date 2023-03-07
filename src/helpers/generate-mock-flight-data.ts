@@ -50,13 +50,14 @@ export const generateMockFlight = ({
   };
 };
 
-export const generateMockFlightset = (registration: string): Flightset => {
+export const generateMockFlightset = (registration: string): Flight[] => {
   let mostRecentAirport = getRandomAirportCode();
   let nextDepartureTime =
     getUnixTime(subDays(startOfToday(), 7)) +
     hoursToSeconds(generateRandomTimeInHours(5, 9));
 
   const flightsByDate: Flightset = {};
+  const flights: Flight[] = [];
 
   while (isPast(fromUnixTime(nextDepartureTime))) {
     const lastFlight = generateMockFlight({
@@ -64,7 +65,8 @@ export const generateMockFlightset = (registration: string): Flightset => {
       departure_airport: mostRecentAirport,
       departure_timestamp: nextDepartureTime,
     });
-    const flightDate = format(fromUnixTime(lastFlight.arrival_timestamp), "PP"); // DEBUG
+    flights.push(lastFlight);
+    const flightDate = format(fromUnixTime(lastFlight.arrival_timestamp), "PP");
     if (Object.hasOwn(flightsByDate, flightDate)) {
       flightsByDate[flightDate].push(lastFlight);
     } else {
@@ -75,5 +77,5 @@ export const generateMockFlightset = (registration: string): Flightset => {
       lastFlight.arrival_timestamp +
       hoursToSeconds(generateRandomTimeInHours(2, 12));
   }
-  return flightsByDate;
+  return flights;
 };
