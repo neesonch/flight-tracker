@@ -12,6 +12,10 @@ interface DashboardState {
     airplaneRegistration: string,
     portfolioId: string
   ) => void;
+  removeAirplaneFromPortfolio: (
+    airplaneRegistration: string,
+    portfolioId: string
+  ) => void;
 }
 
 const useDashboardStore = create<DashboardState>()((set) => ({
@@ -45,6 +49,22 @@ const useDashboardStore = create<DashboardState>()((set) => ({
           airplaneByRegistration: [
             airplaneRegistration,
             ...state.portfolios[portfolioId].airplaneByRegistration,
+          ],
+        },
+      },
+    }));
+  },
+  removeAirplaneFromPortfolio: (airplaneRegistration, portfolioId) => {
+    set((state) => ({
+      portfolios: {
+        ...state.portfolios,
+        [portfolioId]: {
+          id: state.portfolios[portfolioId].id,
+          name: state.portfolios[portfolioId].name,
+          airplaneByRegistration: [
+            ...state.portfolios[portfolioId].airplaneByRegistration.filter(
+              (registration) => registration !== airplaneRegistration
+            ),
           ],
         },
       },

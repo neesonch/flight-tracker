@@ -3,11 +3,13 @@ import {
   Button,
   FormControl,
   MenuItem,
+  IconButton,
   InputLabel,
   List,
   ListItem,
   ListItemText,
 } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import useDashboardStore from "../../../store/store";
 import { Airplane } from "../../../types";
@@ -19,6 +21,9 @@ interface AirplanesListProps {
 const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
   const addAirplaneToPortfolio = useDashboardStore(
     (state) => state.addAirplaneToPortfolio
+  );
+  const removeAirplaneFromPortfolio = useDashboardStore(
+    (state) => state.removeAirplaneFromPortfolio
   );
 
   const airplanes = useDashboardStore((state) => state.airplanes);
@@ -46,7 +51,23 @@ const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
   return (
     <List>
       {airplanesInPortfolio.map((airplane) => (
-        <ListItem key={airplane.registration}>
+        <ListItem
+          key={airplane.registration}
+          secondaryAction={
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              onClick={() =>
+                removeAirplaneFromPortfolio(
+                  airplane.registration,
+                  activePortfolioId
+                )
+              }
+            >
+              <DeleteIcon />
+            </IconButton>
+          }
+        >
           <ListItemText
             primary={airplane.registration}
             secondary={airplane.model}
