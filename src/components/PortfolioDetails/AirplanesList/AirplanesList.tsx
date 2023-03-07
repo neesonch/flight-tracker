@@ -38,7 +38,7 @@ const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
 
   useEffect(() => {
     setAirplanesInPortfolio(
-      activePortfolio?.airplaneByRegistration.map(
+      activePortfolio?.airplanesByRegistration.map(
         (registration) => airplanes[registration]
       ) || []
     );
@@ -85,7 +85,7 @@ const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
           {Object.values(airplanes)
             .filter(
               (airplane) =>
-                !activePortfolio.airplaneByRegistration.includes(
+                !activePortfolio.airplanesByRegistration.includes(
                   airplane.registration
                 )
             )

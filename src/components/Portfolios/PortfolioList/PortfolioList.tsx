@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import PortfolioCard from "../PortfolioCard/PortfolioCard";
+import AddPortfolioCard from "../AddPortfolioCard/AddPortfolioCard";
 import useDashboardStore from "../../../store/store";
 
 const PortfolioList = () => {
@@ -21,6 +22,7 @@ const PortfolioList = () => {
           key={portfolio.id}
         />
       ))}
+      <AddPortfolioCard />
     </StyledBox>
   );
 };

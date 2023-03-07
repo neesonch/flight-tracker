@@ -95,7 +95,7 @@ const FlightsChart = () => {
 
   useEffect(() => {
     const airplanesInPortfolio =
-      activePortfolio?.airplaneByRegistration.map(
+      activePortfolio?.airplanesByRegistration.map(
         (registration) => airplanes[registration]
       ) || [];
     setChartData(generateChartData(airplanesInPortfolio));

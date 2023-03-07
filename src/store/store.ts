@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { mountStoreDevtool } from "simple-zustand-devtools";
+import { v4 as uuidv4 } from "uuid";
 import { AirplaneGroup, Portfolio, PortfolioGroup } from "../types";
 
 interface DashboardState {
@@ -16,6 +17,8 @@ interface DashboardState {
     airplaneRegistration: string,
     portfolioId: string
   ) => void;
+  addNewPortfolio: (portfolioName: string) => void;
+  removePortfolio: (portfolioId: string) => void;
 }
 
 const useDashboardStore = create<DashboardState>()((set) => ({
@@ -27,12 +30,12 @@ const useDashboardStore = create<DashboardState>()((set) => ({
   portfolios: {
     "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed": {
       name: "Hardcoded portfolio",
-      airplaneByRegistration: ["ZS-GAO", "XA-AMZ"],
+      airplanesByRegistration: ["ZS-GAO", "XA-AMZ"],
       id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
     },
     "4abcd2": {
       name: "Another hardcoded portfolio",
-      airplaneByRegistration: ["ZS-GAO", "LY-BFM", "B-6636"],
+      airplanesByRegistration: ["ZS-GAO", "LY-BFM", "B-6636"],
       id: "4abcd2",
     },
   },
@@ -46,9 +49,9 @@ const useDashboardStore = create<DashboardState>()((set) => ({
         [portfolioId]: {
           id: state.portfolios[portfolioId].id,
           name: state.portfolios[portfolioId].name,
-          airplaneByRegistration: [
+          airplanesByRegistration: [
             airplaneRegistration,
-            ...state.portfolios[portfolioId].airplaneByRegistration,
+            ...state.portfolios[portfolioId].airplanesByRegistration,
           ],
         },
       },
@@ -61,14 +64,34 @@ const useDashboardStore = create<DashboardState>()((set) => ({
         [portfolioId]: {
           id: state.portfolios[portfolioId].id,
           name: state.portfolios[portfolioId].name,
-          airplaneByRegistration: [
-            ...state.portfolios[portfolioId].airplaneByRegistration.filter(
+          airplanesByRegistration: [
+            ...state.portfolios[portfolioId].airplanesByRegistration.filter(
               (registration) => registration !== airplaneRegistration
             ),
           ],
         },
       },
     }));
+  },
+  addNewPortfolio: (portfolioName) => {
+    const newPortfolioId = uuidv4();
+    set((state) => ({
+      portfolios: {
+        ...state.portfolios,
+        [newPortfolioId]: {
+          name: portfolioName,
+          id: newPortfolioId,
+          airplanesByRegistration: [],
+        },
+      },
+    }));
+  },
+  removePortfolio: (portfolioId) => {
+    set((state) => {
+      const { [portfolioId]: portfolioToRemove, ...updatedPortfolios } =
+        state.portfolios;
+      return { portfolios: updatedPortfolios };
+    });
   },
 }));
 

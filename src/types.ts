@@ -27,7 +27,7 @@ export interface Flightset {
 
 export interface Portfolio {
   name: string;
-  airplaneByRegistration: string[];
+  airplanesByRegistration: string[];
   id: string;
 }
 
