@@ -31,6 +31,10 @@ export interface Portfolio {
   id: string;
 }
 
+export interface PortfolioGroup {
+  [key: string]: Portfolio;
+}
+
 export interface Datapoint {
   x: string;
   y: number;

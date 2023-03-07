@@ -87,9 +87,9 @@ const FlightsChart = () => {
   const portfolios = useDashboardStore((state) => state.portfolios);
   const airplanes = useDashboardStore((state) => state.airplanes);
 
-  const activePortfolio = portfolios.find(
-    (portfolio) => portfolio.id === activePortfolioId
-  );
+  const activePortfolio = activePortfolioId
+    ? portfolios[activePortfolioId]
+    : null;
 
   const [chartData, setChartData] = useState<ChartDataSet[]>();
 
@@ -98,7 +98,6 @@ const FlightsChart = () => {
       activePortfolio?.airplaneByRegistration.map(
         (registration) => airplanes[registration]
       ) || [];
-    // generateChartData(airplanesInPortfolio);
     setChartData(generateChartData(airplanesInPortfolio));
   }, [activePortfolio, portfolios, airplanes]);
 

@@ -24,7 +24,6 @@ const App = () => {
               flights: generateMockFlightset(airplane.registration),
             };
           });
-          // console.log({ ...airplanesWithFlights }); // DEBUG
           addAirplanes(airplanesWithFlights);
         });
     }

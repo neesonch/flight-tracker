@@ -14,7 +14,7 @@ const PortfolioList = () => {
 
   return (
     <StyledBox>
-      {portfolios.map((portfolio) => (
+      {Object.values(portfolios).map((portfolio) => (
         <PortfolioCard
           name={portfolio.name}
           id={portfolio.id}

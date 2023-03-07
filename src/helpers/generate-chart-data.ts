@@ -21,7 +21,6 @@ const generateChartData = (airplanes: Airplane[]) => {
     }
   });
 
-  // console.log({ flightsByDate }); // DEBUG
   const flightCyclesDatapoints: Datapoint[] = [];
   const flightHoursDatapoints: Datapoint[] = [];
   Object.keys(flightsByDate).forEach((date) => {
