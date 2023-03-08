@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Box, Card, CardContent, Skeleton, Stack } from "@mui/material";
+import React from "react";
+import { Card, Skeleton, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const StyledCard = styled(Card)`

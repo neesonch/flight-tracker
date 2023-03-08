@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { v4 as uuidv4 } from "uuid";
-import { AirplaneGroup, Portfolio, PortfolioGroup } from "../types";
+import { AirplaneGroup, PortfolioGroup } from "../types";
 import mockPortfolioData from "../mocks/mockPortfolioData";
 
 interface DashboardState {

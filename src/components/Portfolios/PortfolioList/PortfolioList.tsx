@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@mui/material/Box";
+import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import PortfolioCard from "../PortfolioCard/PortfolioCard";
 import AddPortfolioCard from "../AddPortfolioCard/AddPortfolioCard";
@@ -26,6 +26,7 @@ const PortfolioList = () => {
 
   return (
     <StyledBox>
+      <Typography variant="h5">Portfolios</Typography>
       {isInitialFetchComplete ? (
         <>
           {Object.values(portfolios).map((portfolio) => (
