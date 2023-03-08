@@ -50,37 +50,14 @@ const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
 
   return (
     <List>
-      {airplanesInPortfolio.map((airplane) => (
-        <ListItem
-          key={airplane.registration}
-          secondaryAction={
-            <IconButton
-              edge="end"
-              aria-label="delete"
-              onClick={() =>
-                removeAirplaneFromPortfolio(
-                  airplane.registration,
-                  activePortfolioId
-                )
-              }
-            >
-              <DeleteIcon />
-            </IconButton>
-          }
-        >
-          <ListItemText
-            primary={airplane.registration}
-            secondary={airplane.model}
-          />
-        </ListItem>
-      ))}
-      <FormControl variant="standard">
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
         <InputLabel id="select-airplane">Select Airplane</InputLabel>
         <Select
           onChange={handleAirplaneSelection}
           value={selectedAirplane}
           label="Select Airplane"
           id="select-airplane"
+          sx={{ marginBottom: 1 }}
         >
           {Object.values(airplanes)
             .filter(
@@ -111,6 +88,30 @@ const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
           Add
         </Button>
       </FormControl>
+      {airplanesInPortfolio.map((airplane) => (
+        <ListItem
+          key={airplane.registration}
+          secondaryAction={
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              onClick={() =>
+                removeAirplaneFromPortfolio(
+                  airplane.registration,
+                  activePortfolioId
+                )
+              }
+            >
+              <DeleteIcon />
+            </IconButton>
+          }
+        >
+          <ListItemText
+            primary={airplane.registration}
+            secondary={airplane.model}
+          />
+        </ListItem>
+      ))}
     </List>
   );
 };

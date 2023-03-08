@@ -19,6 +19,8 @@ interface DashboardState {
   ) => void;
   addNewPortfolio: (portfolioName: string) => void;
   removePortfolio: (portfolioId: string) => void;
+  isInitialFetchComplete: boolean;
+  setIsInitialFetchComplete: (isInitialFetchComplete: boolean) => void;
 }
 
 const useDashboardStore = create<DashboardState>()((set) => ({
@@ -92,6 +94,10 @@ const useDashboardStore = create<DashboardState>()((set) => ({
         state.portfolios;
       return { portfolios: updatedPortfolios };
     });
+  },
+  isInitialFetchComplete: false,
+  setIsInitialFetchComplete: (isInitialFetchComplete) => {
+    set(() => ({ isInitialFetchComplete }));
   },
 }));
 

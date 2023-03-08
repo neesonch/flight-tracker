@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Grid, Typography, Paper } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import FlightsChart from "../FlightsChart/FlightsChart";
 import AirplanesList from "./AirplanesList/AirplanesList";
 import useDashboardStore from "../../store/store";
-import { Airplane } from "../../types";
 
 const StyledPaper = styled(Paper)`
   max-width: 99%;
+  height: 95vh;
 `;
 
 const PortfolioDetails = () => {

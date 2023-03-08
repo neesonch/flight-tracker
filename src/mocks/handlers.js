@@ -4,7 +4,7 @@ import mockAirplanesData from "./mockAirplanesData";
 const handlers = [
   rest.get("/airplanes", (req, res, ctx) => {
     return res(
-      ctx.delay(2000),
+      ctx.delay(500),
       ctx.status(200),
       ctx.json({ airplanes: mockAirplanesData })
     );

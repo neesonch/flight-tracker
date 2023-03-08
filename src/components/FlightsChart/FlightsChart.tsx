@@ -4,53 +4,15 @@ import useDashboardStore from "../../store/store";
 import generateChartData from "../../helpers/generate-chart-data";
 import { ChartDataSet } from "../../types";
 
-const mockData: ChartDataSet[] = [
-  {
-    id: "Flights",
-    color: "hsl(329, 70%, 50%)",
-    data: [
-      {
-        x: "Jun 23, 2020",
-        y: 3,
-      },
-      {
-        x: "Jun 24, 2020",
-        y: 5,
-      },
-      {
-        x: "Jun 25, 2020",
-        y: 2,
-      },
-    ],
-  },
-  {
-    id: "Flight Hours",
-    color: "hsl(149, 70%, 50%)",
-    data: [
-      {
-        x: "Jun 23, 2020",
-        y: 9,
-      },
-      {
-        x: "Jun 24, 2020",
-        y: 15,
-      },
-      {
-        x: "Jun 25, 2020",
-        y: 10,
-      },
-    ],
-  },
-];
-
 interface LineChartProps {
   data: any;
 }
 
-const MyResponsiveLine = ({ data }: LineChartProps) => (
+const LineChart = ({ data }: LineChartProps) => (
   <ResponsiveLine
     data={data}
     margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+    useMesh
     legends={[
       {
         anchor: "bottom-right",
@@ -60,8 +22,8 @@ const MyResponsiveLine = ({ data }: LineChartProps) => (
         translateY: 0,
         itemsSpacing: 0,
         itemDirection: "left-to-right",
-        itemWidth: 80,
-        itemHeight: 20,
+        itemWidth: 90,
+        itemHeight: 30,
         itemOpacity: 0.75,
         symbolSize: 12,
         symbolShape: "circle",
@@ -102,8 +64,8 @@ const FlightsChart = () => {
   }, [activePortfolio, portfolios, airplanes]);
 
   return (
-    <div style={{ height: "900px" }}>
-      <MyResponsiveLine data={chartData} />
+    <div style={{ height: "90vh" }}>
+      <LineChart data={chartData} />
     </div>
   );
 };

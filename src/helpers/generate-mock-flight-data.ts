@@ -53,7 +53,7 @@ export const generateMockFlight = ({
 export const generateMockFlightset = (registration: string): Flight[] => {
   let mostRecentAirport = getRandomAirportCode();
   let nextDepartureTime =
-    getUnixTime(subDays(startOfToday(), 7)) +
+    getUnixTime(subDays(startOfToday(), 9)) +
     hoursToSeconds(generateRandomTimeInHours(5, 9));
 
   const flightsByDate: Flightset = {};
