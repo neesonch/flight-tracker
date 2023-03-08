@@ -6,9 +6,9 @@ Clone and install repo:
 
 `git clone https://github.com/neesonch/flight-tracker`
 
-`cd info-delver && yarn`
+`cd flight-tracker && yarn`
 or
-`cd info-delver && npm install`
+`cd flight-tracker && npm install`
 
 ## Run locally
 
