@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import useDashboardStore from "../../store/store";
 import generateChartData from "../../helpers/generate-chart-data";
+import FlightsChartEmptyState from "./FlightsChartEmptyState";
 import { ChartDataSet } from "../../types";
 
 interface LineChartProps {
@@ -65,7 +66,12 @@ const FlightsChart = () => {
 
   return (
     <div style={{ height: "90vh" }}>
-      <LineChart data={chartData} />
+      {activePortfolio &&
+      activePortfolio?.airplanesByRegistration.length > 0 ? (
+        <LineChart data={chartData} />
+      ) : (
+        <FlightsChartEmptyState />
+      )}
     </div>
   );
 };
