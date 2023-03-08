@@ -26,7 +26,9 @@ const PortfolioList = () => {
 
   return (
     <StyledBox>
-      <Typography variant="h5">Portfolios</Typography>
+      <Typography variant="h5" align="center">
+        Your Portfolios
+      </Typography>
       {isInitialFetchComplete ? (
         <>
           {Object.values(portfolios).map((portfolio) => (

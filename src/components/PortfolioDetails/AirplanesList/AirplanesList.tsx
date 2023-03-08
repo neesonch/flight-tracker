@@ -8,6 +8,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
@@ -50,6 +51,9 @@ const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
 
   return (
     <List>
+      <Typography variant="h6" textAlign="center">
+        Airplanes
+      </Typography>
       <FormControl variant="standard" sx={{ m: 1, minWidth: "90%" }}>
         <InputLabel id="select-airplane">Select Airplane</InputLabel>
         <Select

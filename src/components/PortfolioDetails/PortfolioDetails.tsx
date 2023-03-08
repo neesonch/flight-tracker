@@ -23,7 +23,7 @@ const PortfolioDetails = () => {
   return (
     <StyledPaper variant="outlined">
       <Grid container direction="column">
-        <Typography variant="h4" display="flex" justifyContent="center">
+        <Typography variant="h4" textAlign="center">
           {activePortfolio ? activePortfolio.name : "Please select a portfolio"}
         </Typography>
         {activePortfolioId ? (
