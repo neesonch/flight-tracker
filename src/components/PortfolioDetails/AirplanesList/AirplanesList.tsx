@@ -50,7 +50,7 @@ const AirplanesList = ({ activePortfolioId }: AirplanesListProps) => {
 
   return (
     <List>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 150 }}>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: "90%" }}>
         <InputLabel id="select-airplane">Select Airplane</InputLabel>
         <Select
           onChange={handleAirplaneSelection}

@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { mountStoreDevtool } from "simple-zustand-devtools";
 import { v4 as uuidv4 } from "uuid";
 import { AirplaneGroup, Portfolio, PortfolioGroup } from "../types";
+import mockPortfolioData from "../mocks/mockPortfolioData";
 
 interface DashboardState {
   airplanes: AirplaneGroup;
@@ -29,18 +30,7 @@ const useDashboardStore = create<DashboardState>()((set) => ({
   setActivePortfolioId: (id: string | null) => {
     set(() => ({ activePortfolioId: id }));
   },
-  portfolios: {
-    "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed": {
-      name: "Hardcoded portfolio",
-      airplanesByRegistration: ["ZS-GAO", "XA-AMZ"],
-      id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
-    },
-    "4abcd2": {
-      name: "Another hardcoded portfolio",
-      airplanesByRegistration: ["ZS-GAO", "LY-BFM", "B-6636"],
-      id: "4abcd2",
-    },
-  },
+  portfolios: mockPortfolioData,
   addAirplanes: (newAirplanes: AirplaneGroup) => {
     set((state) => ({ airplanes: { ...newAirplanes, ...state.airplanes } }));
   },

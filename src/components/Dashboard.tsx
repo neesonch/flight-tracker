@@ -6,10 +6,10 @@ import PortfolioDetails from "./PortfolioDetails/PortfolioDetails";
 const Dashboard = () => {
   return (
     <Grid container spacing={1}>
-      <Grid item xs={3}>
+      <Grid item xs={12} sm={3} xl={2}>
         <PortfolioList />
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={12} sm={9} xl={10}>
         <PortfolioDetails />
       </Grid>
     </Grid>

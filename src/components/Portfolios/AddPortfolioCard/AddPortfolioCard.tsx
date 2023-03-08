@@ -19,6 +19,7 @@ const AddPortfolioCard = () => {
           label="Portfolio name"
           value={newPortfolioName}
           onChange={(e) => setNewPortfolioName(e.target.value)}
+          sx={{ width: "99%" }}
         />
         <Button
           disabled={!newPortfolioName}
