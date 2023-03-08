@@ -23,3 +23,10 @@ or
 `npm run start`
 
 If not automatically redirected, navigate to http://localhost:3000 in browser to view.
+
+## Testing
+
+To run e2e tests (via Cypress):
+`yarn e2e`
+or
+`npm run e2e`
