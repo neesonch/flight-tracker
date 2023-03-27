@@ -4,11 +4,7 @@
 
 Clone and install repo:
 
-`git clone git@github.com:neesonch/flight-tracker.git` (SSH)
-
-or
-
-`git clone git@github.com:neesonch/flight-tracker.git`
+`git clone https://github.com/neesonch/flight-tracker`
 
 `cd flight-tracker && yarn` (Yarn recommended)
 
