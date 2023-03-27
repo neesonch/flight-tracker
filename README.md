@@ -24,6 +24,10 @@ or
 
 If not automatically redirected, navigate to http://localhost:3000 in browser to view.
 
+## View live version
+
+https://flight-tracker-neesonch.vercel.app/
+
 ## Testing
 
 To run e2e tests (via Cypress):
